@@ -1,0 +1,71 @@
+<div class="container mt-4">
+    <form [formGroup]="dnaForm" (ngSubmit)="onSubmit()">
+      <h2>Secuencia de DNA Humano y Mutante</h2>
+      <div formArrayName="dnaSecuencia">
+        <div *ngFor="let dnaRow of dnaSecuencia.controls; let i = index" [formGroupName]="i">
+          <div class="row mb-3 align-items-center">
+            <div class="col-md-9">
+              <input 
+                formControlName="sequence" 
+                class="form-control" 
+                placeholder="Agregue DNA (ATCG)"
+              />
+              <div *ngIf="dnaRow.get('sequence')?.invalid && dnaRow.get('sequence')?.touched" class="text-danger">
+                Secuencia Invalida. Valores permitidos (A, T, C, G)
+              </div>
+            </div>  
+  
+            <div class="col-md-3 text-md-end">
+              <button type="button" class="btn btn-danger w-100" (click)="EliminarSecuanciaDNA(i)">
+                Eliminar
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Botón para agregar una nueva fila de secuencia -->
+      <div class="d-flex justify-content-start mb-3">
+        <button type="button" class="btn btn-primary w-100" (click)="AgregarSecuanciaDNA()">Agregar DNA</button>
+      </div>
+  
+      <!-- Botón de envío del formulario -->
+      <div class="d-flex justify-content-end mb-4">
+        <button type="submit" class="btn btn-success" [disabled]="!dnaForm.valid">Evaluar ADN Mutante</button>
+      </div>
+    </form>
+
+    <div *ngIf="dnaMatrix.length > 0">
+        <h4>Secuancia de ADN:</h4>
+        <table class="table table-bordered">
+          <tbody>
+            <tr *ngFor="let row of dnaMatrix; let i = index">
+              <td *ngFor="let nucleotide of row; let j = index" 
+                  [ngStyle]="{'color': mutatedCells[i][j] ? 'red' : 'black'}">
+                {{ nucleotide }}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+    </div>   
+  
+    <!-- Mensaje emergente cuando se envía el formulario -->
+    <div *ngIf="mensajeHeader" class="modal-overlay">
+      <div class="modal-content" [ngStyle]="{'border-color': Color}">
+        <h5 [ngStyle]="{'color': Color}">{{ mensajeHeader }}</h5>
+        <p [ngStyle]="{'color': Color}">{{ mensajeDescripcion }}</p>
+  
+        <div *ngIf="mensaje">
+          <pre>{{ mensaje }}</pre>
+        </div>
+  
+        <button class="btn btn-secondary" (click)="cerrarModal()">Cerrar</button>
+      </div>
+    </div>
+
+    <div *ngIf="mensajeAdicional" class="mensaje-adicional" [ngStyle]="{ borderColor: Color }">
+        <p>{{ mensajeAdicional }}</p>
+    </div>
+      
+
+  </div>

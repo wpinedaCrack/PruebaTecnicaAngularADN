@@ -1,0 +1,92 @@
+/* Estilo para la capa de fondo que cubre toda la pantalla */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Fondo oscuro con opacidad */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Para asegurarnos de que esté encima del contenido */
+  }
+  
+  /* Estilo para el contenido del modal */
+  .modal-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    width: 80%;
+    max-width: 600px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .modal-content h5 {
+    margin-bottom: 15px;
+  }
+  
+  .modal-content pre {
+    background-color: #f7f7f7;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: left;
+    max-height: 300px;
+    overflow-y: auto;
+  }
+  
+  .modal-content .btn {
+    margin-top: 15px;
+  }
+  
+  .mutant-row {
+    background-color: lightcoral;
+    color: white;
+  }
+
+
+  /* Estilo para el mensaje adicional */
+.mensaje-adicional {
+    background-color: transparent;  /* Fondo transparente */
+    color: #333;  /* Color de texto */
+    border: 3px solid;  /* Borde delgado */
+    border-radius: 12px;  /* Bordes redondeados */
+    padding: 15px 25px;  /* Espaciado interno */
+    margin-top: 20px;  /* Margen superior */
+    text-align: center;  /* Texto centrado */
+    font-size: 18px;  /* Tamaño de fuente */
+    font-weight: 500;  /* Peso de la fuente */
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);  /* Sombra sutil */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;  /* Transición suave para color y sombra */
+  }
+  
+  /* Efecto de borde y sombra cuando el color cambia */
+  .mensaje-adicional p {
+    margin: 0;  /* Eliminar margen del párrafo */
+  }
+  
+  .mensaje-adicional:hover {
+    box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.2);  /* Aumenta la sombra al pasar el ratón */
+  }
+  
+  /* Colores de borde dinámicos */
+  .red-border {
+    border-color: #e74c3c;  /* Rojo brillante */
+  }
+  
+  .green-border {
+    border-color: #2ecc71;  /* Verde brillante */
+  }
+  
+  .blue-border {
+    border-color: #3498db;  /* Azul brillante */
+  }
+  
+  .orange-border {
+    border-color: #f39c12;  /* Naranja brillante */
+  }
+  
+  .yellow-border {
+    border-color: #f1c40f;  /* Amarillo brillante */
+  }
